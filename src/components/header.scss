@@ -1,0 +1,19 @@
+
+.App-header {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 5rem;
+    z-index: 100;
+    color: rgb(18, 18, 18);
+
+    .wrapper {
+        width: 100%;
+        padding: 2rem;
+        margin: 0 auto;
+        max-width: 100%;
+        opacity: 1;
+        cursor: pointer;
+    }
+}
