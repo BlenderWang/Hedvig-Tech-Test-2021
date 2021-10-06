@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
-@import './components/header.scss';
-@import './components/card.scss';
+@import './styles/header.scss';
+@import './styles/card.scss';
+@import './styles/overlay.scss';
 
 * {
     outline: none;
@@ -13,8 +14,8 @@
     --theme-color: #3c3a3a;
     --button-inactive: #3c3a3a;
     --overlay-bg: rgb(255 255 255 / 30%);
+    --overlay-common: rgb(18, 18, 18);
     --grid-hover: rgba(46, 54, 68, .03);
-    --popup-bg: rgb(255 255 255);
     --hover-menu-bg: rgba(255 255 255 / 35%);
     --body-font: "Poppins", sans-serif;
 }
@@ -35,4 +36,5 @@ body {
     padding: 0;
     width: 100%;
     height: 100vh;
+    overflow: hidden;
 }

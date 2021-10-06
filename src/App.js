@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react'
+import * as React from 'react';
 import { Header } from './components/Header'
 import { Card } from './components/Card'
 import axios from "axios";
 import './App.scss';
 
 function App() {
-    const [items, setItems] = useState([])
+    const [items, setItems] = React.useState([])
 
-    useEffect(() => {
+    React.useEffect(() => {
         const getResults = async () => {
             const results = await axios.get(`https://hedvig-staging-rest-api.vercel.app/api/perils?contractType=SE_APARTMENT_RENT&locale=en_SE`)
             setItems(results.data)
