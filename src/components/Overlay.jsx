@@ -2,7 +2,6 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import MobileStepper from '@mui/material/MobileStepper';
-import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import CloseIcon from '@mui/icons-material/Close';
@@ -11,7 +10,7 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { v4 as uuidv4 } from 'uuid';
 
-export const Overlay = ({ open, closeOverlay, goBack, toNext, items, activeItem }) => {
+export const Overlay = ({ open, closeOverlay, goBack, toNext, items, activeItem}) => {
     const maxItems = items.length;
 
     return (
@@ -19,33 +18,32 @@ export const Overlay = ({ open, closeOverlay, goBack, toNext, items, activeItem 
             <Modal
                 open={open}
                 onClose={() => closeOverlay()}
+                hideBackdrop
             >
-                <Fade in={open}>
-                    <Box className='overlay-wrapper'>
-                        <div className='overlay'>
-                            <CloseIcon onClick={() => closeOverlay()} className='overlay-closeBtn' />
+                <Box className='overlay-wrapper'>
+                    <div className='overlay'>
+                        <CloseIcon onClick={() => closeOverlay()} className='overlay-closeBtn' />
 
-                            <Box className='overlay-content'>
-                                <div className='overlay-header-group'>
-                                    <MobileStepper
-                                        steps={maxItems}
-                                        position="static"
-                                        activeStep={activeItem}
-                                        nextButton={
-                                            <Button onClick={() => toNext()} disabled={activeItem === maxItems - 1} variant="outlined" color='inherit' id='forwardBtn'>
-                                                <ArrowForwardIosIcon />
-                                            </Button>
-                                        }
-                                        backButton={
-                                            <Button onClick={() => goBack()} disabled={activeItem === 0}  variant="outlined" color='inherit' id='backBtn'>
-                                                <ArrowBackIosNewIcon />
-                                            </Button>
-                                        }
-                                    />
-                                </div>
+                        <Box className='overlay-content'>
+                            <MobileStepper
+                                steps={maxItems}
+                                position="static"
+                                activeStep={activeItem}
+                                nextButton={
+                                    <Button onClick={() => toNext()} disabled={activeItem === maxItems - 1} variant="outlined" color='inherit' id='forwardBtn'>
+                                        <ArrowForwardIosIcon />
+                                    </Button>
+                                }
+                                backButton={
+                                    <Button onClick={() => goBack()} disabled={activeItem === 0}  variant="outlined" color='inherit' id='backBtn'>
+                                        <ArrowBackIosNewIcon />
+                                    </Button>
+                                }
+                                id='button-group'
+                            />
 
-                                <>
-                                <h2 className='overlay-header'>{items[activeItem].title}</h2>
+                            <div className='overlay-content-group'>
+                                <h2 className='overlay-title'>{items[activeItem].title}</h2>
                                 <p className='overlay-description'>{items[activeItem].description}</p>
                                 <Divider variant="middle" id='overlay-divider' />
                                 <Box className='overlay-covered--group'>
@@ -56,11 +54,10 @@ export const Overlay = ({ open, closeOverlay, goBack, toNext, items, activeItem 
                                         </div>
                                     ))}
                                 </Box>
-                                </>
-                            </Box>
-                        </div>
-                    </Box>
-                </Fade>
+                            </div>
+                        </Box>
+                    </div>
+                </Box>
             </Modal>
         </>
     )

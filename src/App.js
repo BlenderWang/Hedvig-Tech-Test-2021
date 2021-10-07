@@ -15,7 +15,8 @@ function App() {
         setIsOpen(false)
     }
 
-    const handleOpen = () => {
+    const handleOpen = (itemId) => {
+        setActiveItem(itemId)
         setIsOpen(true)
     }
 
@@ -41,11 +42,11 @@ function App() {
         <div className='cards-wrapper'>
             <h3 className='cards-wrapper--title'>our coverage</h3>
             <div className='cards'>
-                {items.map(item => (
-                    <div key={uuidv4()}>
-                        <Card key={item.title} item={item} handleClick={handleOpen} />
-                        <Overlay items={items} activeItem
-                        ={activeItem} open={isOpen} closeOverlay={handleClose} goBack={handleBack} toNext={handleNext} />
+                {items.map((item, index) => (
+                    <div key={uuidv4()} className='wrapper'>
+                        <Card key={item.title} item={item} itemId={index} handleClick={handleOpen} />
+                        <Overlay items={items} activeItem={activeItem}
+                         open={isOpen} closeOverlay={handleClose} goBack={handleBack} toNext={handleNext} />
                     </div>
                 ))}
             </div>

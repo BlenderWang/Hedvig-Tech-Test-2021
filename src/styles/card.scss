@@ -24,10 +24,15 @@
     }
 }
 
+.wrapper {
+    width: 100%;
+    background-color: white;
+}
+
 .card {
     display: flex;
     align-items: center;
-    background-color: white;
+    background-color: transparent;
     border: none;
     border-radius: 5px;
     cursor: pointer;

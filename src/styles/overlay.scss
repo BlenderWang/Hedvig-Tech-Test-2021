@@ -19,7 +19,7 @@
     left: 50%;
     top: 50%;
     box-sizing: border-box;
-    overflow-x: scroll;
+    // overflow-x: scroll;
     transform: translateX(-50%) translateY(-50%) scale(1);
 
     @media screen and (min-width: 960px) {
@@ -50,18 +50,12 @@
         padding: 3rem;
     }
 
-    &-header-group {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    &-title {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 300;
+        line-height: 1.2;
     }
-
-    // &-header {
-    //     text-align: center;
-    //     font-size: 2rem;
-    //     font-weight: 300;
-    //     line-height: 1.2;
-    // }
 
     &-description {
         font-size: .9rem;
@@ -104,11 +98,17 @@
     transform: rotateZ(45deg);
 }
 
-#overlay-header {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 300;
-    line-height: 1.2;
+#button-group {
+    position: absolute;
+    width: 85%;
+    padding: 2rem 0;
+    background: transparent;
+    z-index: 999;
+
+    > :nth-child(2) {
+        opacity: 0;
+        visibility: hidden;
+    }
 }
 
 #overlay-divider {

@@ -12,11 +12,9 @@
 :root {
     --theme-bg-color: rgb(250,250,250);
     --theme-color: #3c3a3a;
-    --button-inactive: #3c3a3a;
     --overlay-bg: rgb(255 255 255 / 30%);
     --overlay-common: rgb(18, 18, 18);
     --grid-hover: rgba(46, 54, 68, .03);
-    --hover-menu-bg: rgba(255 255 255 / 35%);
     --body-font: "Poppins", sans-serif;
 }
 
@@ -37,4 +35,12 @@ body {
     width: 100%;
     height: 100vh;
     overflow: hidden;
+}
+
+.App {
+    width: 80vw;
+
+    @media screen and (min-width: 960px) {
+        width: initial;
+    }
 }
